@@ -321,33 +321,41 @@
         });
 
         function deleteEvent(index) {
-            events.splice(index, 1);
-            generateGanttChart();
+            console.log('Deleting event at index:', index); // 偵錯用
+            if (index >= 0 && index < events.length) {
+                events.splice(index, 1);
+                generateGanttChart();
+            } else {
+                console.error('Invalid index:', index);
+            }
         }
 
         function generateGanttChart() {
-            if (events.length === 0) return;
-
+            if (events.length === 0) {
+                document.getElementById('ganttChart').innerHTML = '';
+                return;
+            }
+        
             const minYear = Math.min(...events.map(e => e.startYear));
             const maxYear = Math.max(...events.map(e => e.endYear));
-
+        
             let html = '<tr><th rowspan="2">操作</th><th rowspan="2">派工批次</th><th rowspan="2">案件名稱</th>';
-
+        
             for (let year = minYear; year <= maxYear; year++) {
                 html += `<th colspan="12" class="year-header">${year}</th>`;
             }
             html += '</tr><tr>';
-
+        
             for (let year = minYear; year <= maxYear; year++) {
                 for (let month = 1; month <= 12; month++) {
                     html += `<th>${month}月</th>`;
                 }
             }
             html += '</tr>';
-
+        
             events.forEach((event, index) => {
                 html += `<tr>
-                    <td><button class="delete-btn" onclick="deleteEvent(${index})">刪除</button></td>
+                    <td><button class="delete-btn" data-index="${index}">刪除</button></td>
                     <td>${event.category}</td>
                     <td>${event.name}</td>`;
                 
@@ -364,8 +372,17 @@
                 
                 html += '</tr>';
             });
+        
+            const ganttChart = document.getElementById('ganttChart');
+            ganttChart.innerHTML = html;
 
-            document.getElementById('ganttChart').innerHTML = html;
+            // 為所有刪除按鈕添加事件監聽器
+            document.querySelectorAll('.delete-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const index = parseInt(this.getAttribute('data-index'));
+                    deleteEvent(index);
+                });
+            });
         }
 
         function clearInputs() {
@@ -397,31 +414,19 @@
                 deleteButtons.forEach(btn => btn.style.display = '');
             });
         }
-		
-		function downloadCSV() {
-			if (events.length === 0) {
-				alert('沒有可下載的數據');
-				return;
-			}
+        
+        function downloadCSV() {
+            if (events.length === 0) {
+                alert('沒有可下載的數據');
+                return;
+            }
 
-			let csvContent = "派工批次,案件名稱,開始年份,開始月份,結束年份,結束月份,顏色\n";
-			
-			events.forEach(event => {
-				csvContent += `${event.category},${event.name},${event.startYear},${event.startMonth},${event.endYear},${event.endMonth},${event.color}\n`;
-			});
-
-			const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-			const url = URL.createObjectURL(blob);
-			const link = document.createElement('a');
-			link.href = url;
-			link.download = '甘特圖數據.csv';
-			link.click();
-			
-			// 清理 URL object 以避免內存洩漏
-			setTimeout(() => {
-				URL.revokeObjectURL(url);
-			}, 100);
-		}
-	</script>
+            let csvContent = "派工批次,案件名稱,開始年份,開始月份,結束年份,結束月份,顏色\n";
+            
+            events.forEach(event => {
+                csvContent += `${event.category},${event.name},${event.startYear},${event.startMonth},${event.endYear},${event.endMonth},${event.color}\n`;
+            });
+        }
+    </script>
 </body>
 </html>
