@@ -146,7 +146,7 @@ params:
       name: "Resume"
       url: "https://drive.google.com/file/d/1JbYaoy2Pie529PvcJVH22tJ4q26sMgC7/view?usp=sharing"
       download: true
-      newPage: false
+      newPage: true
     socialLinks:
       fontAwesomeIcons:
         - icon: fab fa-github
