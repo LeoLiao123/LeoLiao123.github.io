@@ -1,4 +1,4 @@
-baseURL: "https://hugo-profile.netlify.app"
+baseURL: "https://leoliao.github.io/"
 languageCode: "en-us"
 title: "LeoLiao123"
 theme: hugo-profile
@@ -313,7 +313,7 @@ params:
   contact:
     enable: true
     # title: "Custom Name"
-    content: My inbox is always open. Whether you have a question or just want to say hi, I’ll try my best to get back to you!
+    content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
     btnName: Mail me
     btnLink: mailto:gurusabarisha@gmail.com
     # formspree:
