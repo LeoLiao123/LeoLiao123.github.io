@@ -137,7 +137,7 @@ params:
     title: "Ting-Wei(Leo) Liao."
     subtitle: "I write code to prevent dementia"
     content: "I am a software developer with a passion for data engineering and backend development."
-    image: /images/my_head.jpg
+    image: /images/my_head.png
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
