@@ -1,4 +1,4 @@
-baseURL: "https://leoliao.github.io/personal-web/personal-site/public"
+baseURL: "https://leoliao.github.io/personal-web/"
 languageCode: "en-us"
 title: "LeoLiao123"
 theme: hugo-profile
