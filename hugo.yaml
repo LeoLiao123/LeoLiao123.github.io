@@ -137,7 +137,7 @@ params:
     title: "Ting-Wei(Leo) Liao."
     subtitle: "I write code to prevent dementia"
     content: "I am a software developer with a passion for data engineering and backend development."
-    image: /images/hero.svg
+    image: /images/my_head.jpg
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -315,7 +315,7 @@ params:
     # title: "Custom Name"
     content: My inbox is always open. Whether you have a question or just want to say hi, I'll try my best to get back to you!
     btnName: Mail me
-    btnLink: mailto:gurusabarisha@gmail.com
+    btnLink: leoyeepaa@gmail.com
     # formspree:
     #   enable: true # `contact.email` value will be ignored
     #   formId: abcdefgh # Take it from your form's endpoint, like 'https://formspree.io/f/abcdefgh'
@@ -330,12 +330,6 @@ params:
       title: Recent Posts
       enable: true
       disableFeaturedImage: false
-    socialNetworks:
-      github: https://github.com
-      linkedin: https://linkedin.com
-      twitter: https://twitter.com
-      instagram: https://instagram.com
-      facebook: https://facebook.com
 
   # List pages like blogs and posts
   listPages:
