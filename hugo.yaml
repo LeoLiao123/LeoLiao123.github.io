@@ -140,6 +140,7 @@ params:
     image: /images/my_head.png
     bottomImage:
       enable: true
+      roundImage: true
     # roundImage: true # Make hero image circular | default false
     button:
       enable: true
