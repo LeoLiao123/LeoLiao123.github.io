@@ -135,8 +135,8 @@ params:
     enable: true
     intro: "Hi, my name is"
     title: "Ting-Wei(Leo) Liao."
-    subtitle: "I write code to prevent dementia"
-    content: "I am a software developer with a passion for data engineering and backend development."
+    subtitle: "I code to solve problems"
+    content: "I am a software developer with a passion for data engineering and backend development and contribute to the open source community."
     image: /images/my_head.png
     bottomImage:
       enable: true
